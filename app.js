@@ -1,4 +1,5 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable import/extensions */
 /* eslint-disable no-console */
 
 import chalk from 'chalk';
@@ -38,10 +39,6 @@ commander
   .parse(process.argv);
 
 const args = commander.opts();
-
-// console.log(process.argv);
-// console.log(args.type);
-// console.log(args.number);
 
 // axios demos
 
