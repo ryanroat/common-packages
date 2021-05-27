@@ -1,7 +1,11 @@
 /* eslint-disable linebreak-style */
-import chalk from 'chalk';
+/* eslint-disable no-console */
 
-console.log(chalk.red.inverse('An error'));
+import chalk from 'chalk';
+import axios from 'axios';
+
+// chalk demos
+
 console.log(chalk.blue.bgRed.bold('Hello world!'));
 console.log(chalk.red('Hello', `${chalk.underline.bgBlue('world')}!`));
 
@@ -22,3 +26,13 @@ console.log(warning('Warning!'));
 
 console.log(chalk.level);
 console.log(chalk.blue.bold.inverse('inverse bold blue'));
+
+// axios demos
+
+axios.get('https://swapi.dev/api/people/1')
+  .then((results) => {
+    console.log(results.data);
+  })
+  .catch((error) => {
+    console.log(chalk.red.inverse('An error retrieving data via axios'));
+  });
