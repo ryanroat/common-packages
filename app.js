@@ -3,7 +3,9 @@
 
 import chalk from 'chalk';
 import axios from 'axios';
+import { Command } from 'commander/esm.mjs';
 
+const commander = new Command();
 // chalk demos
 
 console.log(chalk.blue.bgRed.bold('Hello world!'));
@@ -27,9 +29,23 @@ console.log(warning('Warning!'));
 console.log(chalk.level);
 console.log(chalk.blue.bold.inverse('inverse bold blue'));
 
+// commander demos
+
+commander
+  .option('-t, --type <type>', 'Lookup type')
+  .option('-n, --number <number>', 'Number of results');
+commander
+  .parse(process.argv);
+
+const args = commander.opts();
+
+// console.log(process.argv);
+// console.log(args.type);
+// console.log(args.number);
+
 // axios demos
 
-axios.get('https://swapi.dev/api/people/1')
+axios.get(`https://swapi.dev/api/${args.type}/${args.number}/`)
   .then((results) => {
     console.log(results.data);
   })
